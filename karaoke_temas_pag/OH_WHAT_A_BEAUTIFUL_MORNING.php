@@ -1,0 +1,5 @@
+<?php include('../assets/topone.php'); ?>	
+	<title>KARAOKE _OH, WHAT A BEAUTIFUL MORNING_ - _PISTAS_ MUSICALES DE OKLAHOMA - Roberto Rial Producciones [1] - Pistas, Pistas Musicales,  Karaoke Songs, Playbacks - Tango, Opera, Broadway, Rock, Pop, Latinos,  Folklore, Infantiles, Tangos, Canzonettas - Roberto Rial Producciones</title>
+	<meta name="title" content="KARAOKE _OH, WHAT A BEAUTIFUL MORNING_ - _PISTAS_ MUSICALES DE OKLAHOMA - Roberto Rial Producciones [1] - Pistas, Pistas Musicales,  Karaoke Songs, Playbacks - Tango, Opera, Broadway, Rock, Pop, Latinos,  Folklore, Infantiles, Tangos, Canzonettas - Roberto Rial Producciones" />
+	<?php include('../assets/inc/toptwo.php'); ?>  <?php $idA = 2848; $idT = 17245; ?><?php include '../dev_cdartesanalNEWT.php' ?> 
+			<?php include('../assets/toptre.php'); ?>

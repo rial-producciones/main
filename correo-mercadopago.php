@@ -23,7 +23,7 @@ for ($i = 0; $i < count($sonPacks); $i++) {
     $totalSonPacks += intval($sonPacks[$i]['precio']);
 }
 
-$totalNoSonPacks = getDiscountNoPacks($noSonPacks);
+$totalNoSonPacks = getDiscountNoPacks($noSonPacks, "pesos");
 
 $totaal = $totalSonPacks + $totalNoSonPacks;
 
@@ -70,7 +70,7 @@ $mail->From = "contactos@rialproducciones.com";
 $mail->FromName = "RialProducciones.com";
 $mail->AddAddress($emailDestino);
 $mail->AddAddress('info.rialproducciones@gmail.com');
-$mail->AddAddress($email);
+// $mail->AddAddress($email);
 
 $mail->Subject = ($asunto);
 $mail->Body = ($ContenidosBody);

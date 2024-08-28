@@ -1132,8 +1132,8 @@ $signoMostrar = ($_SESSION["pais"] == "otro") ? "U\$D" : "\$";
     </script>
 
     <script>
-        const carrito = JSON.parse(localStorage.getItem("carrito"))
-        // let carrito = JSON.parse(localStorage.getItem("carrito"))
+        const carrito = JSON.parse(sessionStorage.getItem("carrito"))
+        // let carrito = JSON.parse(sessionStorage.getItem("carrito"))
         // let textArea = document.querySelector(".form-control")
         // for (let i = 0; i < carrito.length; i++) {
         //     textArea.value += `${carrito[i].nombre}[${carrito[i].tonos}], `
@@ -1169,7 +1169,7 @@ $signoMostrar = ($_SESSION["pais"] == "otro") ? "U\$D" : "\$";
                         .then(response => response.json())
                         .then(data => {
                             // console.log(data);
-                            localStorage.removeItem('carrito');
+                            sessionStorage.removeItem('carrito');
                             setTimeout(() => {
                                 window.location.href = `${data}`
                             }, 1000);
@@ -1189,7 +1189,7 @@ $signoMostrar = ($_SESSION["pais"] == "otro") ? "U\$D" : "\$";
             //     .then(response => response.json())
             //     .then(data => {
             //         // console.log(data)
-            //         localStorage.removeItem('carrito');
+            //         sessionStorage.removeItem('carrito');
             //         setTimeout(() => {
             //             window.location.href = `${data}`
             //         }, 1000);
@@ -1214,7 +1214,7 @@ $signoMostrar = ($_SESSION["pais"] == "otro") ? "U\$D" : "\$";
                 })
                 .then(response => response.json())
                 .then(data => {
-                    localStorage.removeItem('carrito');
+                    sessionStorage.removeItem('carrito');
                     // console.log(data);
                     setTimeout(() => {
                         window.location.href = `${data}`
@@ -1294,7 +1294,7 @@ $signoMostrar = ($_SESSION["pais"] == "otro") ? "U\$D" : "\$";
             }
         } else if (cantCanciones.length >= 20 && cantCanciones.length <= 29) {
             for (let i = 0; i < cantCanciones.length; i++) {
-                totalNoPacksUSD += (Math.floor(parseInt(cantCanciones[i].internacional) - Math.ceil(parseInt(cantCanciones[i].internacional) * 0.34)))
+                totalNoPacksUSD += (Math.floor(parseInt(cantCanciones[i].internacional) - Math.ceil(parseInt(cantCanciones[i].internacional) * 0.33)))
             }
         } else {
             for (let i = 0; i < cantCanciones.length; i++) {

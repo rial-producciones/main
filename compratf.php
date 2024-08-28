@@ -33,7 +33,7 @@ for ($i = 0; $i < count($sonPacks); $i++) {
 	$totalSonPacks += intval($sonPacks[$i]['precio']);
 }
 
-$totalNoSonPacks = getDiscountNoPacks($noSonPacks);
+$totalNoSonPacks = getDiscountNoPacks($noSonPacks, "pesos");
 
 
 $total = $totalSonPacks + $totalNoSonPacks;

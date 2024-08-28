@@ -1,26 +1,46 @@
 <?php
-function getDiscountNoPacks($noSonPacks)
+function getDiscountNoPacks($noSonPacks, $money)
 {
     $totalNoSonPacks = 0;
-    if (count($noSonPacks) > 0 && count($noSonPacks) <= 2) {
-        for ($i = 0; $i < count($noSonPacks); $i++) {
-            $totalNoSonPacks +=  intval($noSonPacks[$i]['precio']);
-        }
-    } else if (count($noSonPacks) >= 3 && count($noSonPacks) <= 9) {
-        for ($i = 0; $i < count($noSonPacks); $i++) {
-            $totalNoSonPacks +=  floor(intval($noSonPacks[$i]['precio']) - ceil(intval($noSonPacks[$i]['precio']) * 0.15));
-        }
-    } else if (count($noSonPacks) >= 10 && count($noSonPacks) <= 19) {
-        for ($i = 0; $i < count($noSonPacks); $i++) {
-            $totalNoSonPacks +=  floor(intval($noSonPacks[$i]['precio']) - ceil(intval($noSonPacks[$i]['precio']) * 0.27));
-        }
-    } else if (count($noSonPacks) >= 20 && count($noSonPacks) <= 29) {
-        for ($i = 0; $i < count($noSonPacks); $i++) {
-            $totalNoSonPacks +=  floor(intval($noSonPacks[$i]['precio']) - ceil(intval($noSonPacks[$i]['precio']) * 0.36));
+    if ($money == "pesos") {
+        if (count($noSonPacks) > 0 && count($noSonPacks) <= 2) {
+            for ($i = 0; $i < count($noSonPacks); $i++) {
+                $totalNoSonPacks +=  intval($noSonPacks[$i]['precio']);
+            }
+        } else if (count($noSonPacks) >= 3 && count($noSonPacks) <= 9) {
+            for ($i = 0; $i < count($noSonPacks); $i++) {
+                $totalNoSonPacks +=  floor(intval($noSonPacks[$i]['precio']) - ceil(intval($noSonPacks[$i]['precio']) * 0.15));
+            }
+        } else if (count($noSonPacks) >= 10 && count($noSonPacks) <= 19) {
+            for ($i = 0; $i < count($noSonPacks); $i++) {
+                $totalNoSonPacks +=  floor(intval($noSonPacks[$i]['precio']) - ceil(intval($noSonPacks[$i]['precio']) * 0.27));
+            }
+        } else if (count($noSonPacks) >= 20 && count($noSonPacks) <= 29) {
+            for ($i = 0; $i < count($noSonPacks); $i++) {
+                $totalNoSonPacks +=  floor(intval($noSonPacks[$i]['precio']) - ceil(intval($noSonPacks[$i]['precio']) * 0.36));
+            }
+        } else {
+            for ($i = 0; $i < count($noSonPacks); $i++) {
+                $totalNoSonPacks +=  floor(intval($noSonPacks[$i]['precio']) - ceil(intval($noSonPacks[$i]['precio']) * 0.45));
+            }
         }
     } else {
-        for ($i = 0; $i < count($noSonPacks); $i++) {
-            $totalNoSonPacks +=  floor(intval($noSonPacks[$i]['precio']) - ceil(intval($noSonPacks[$i]['precio']) * 0.45));
+        if (count($noSonPacks) >= 1 && count($noSonPacks) <= 9) {
+            for ($i = 0; $i < count($noSonPacks); $i++) {
+                $totalNoSonPacks +=  intval($noSonPacks[$i]['internacional']);
+            }
+        } else if (count($noSonPacks) >= 10 && count($noSonPacks) <= 19) {
+            for ($i = 0; $i < count($noSonPacks); $i++) {
+                $totalNoSonPacks +=  floor(intval($noSonPacks[$i]['internacional']) - ceil(intval($noSonPacks[$i]['internacional']) * 0.22));
+            }
+        } else if (count($noSonPacks) >= 20 && count($noSonPacks) <= 29) {
+            for ($i = 0; $i < count($noSonPacks); $i++) {
+                $totalNoSonPacks +=  floor(intval($noSonPacks[$i]['internacional']) - ceil(intval($noSonPacks[$i]['internacional']) * 0.33));
+            }
+        } else {
+            for ($i = 0; $i < count($noSonPacks); $i++) {
+                $totalNoSonPacks +=  floor(intval($noSonPacks[$i]['internacional']) - ceil(intval($noSonPacks[$i]['internacional']) * 0.44));
+            }
         }
     }
 

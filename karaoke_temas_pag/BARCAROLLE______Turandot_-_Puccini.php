@@ -1,0 +1,4 @@
+<?php include('../assets/inc/topone.php'); ?>	
+	<title>KARAOKE _BARCAROLLE      (Turandot) - Puccini_ - _PISTAS_ MUSICALES DE ARIAS SOPRANO - Roberto Rial Producciones [1] - Pistas, Pistas Musicales,  Karaoke Songs, Playbacks - Tango, Opera, Broadway, Rock, Pop, Latinos,  Folklore, Infantiles, Tangos, Canzonettas - Roberto Rial Producciones</title>
+	<meta name="title" content="KARAOKE _BARCAROLLE      (Turandot) - Puccini_ - _PISTAS_ MUSICALES DE ARIAS SOPRANO - Roberto Rial Producciones [1] - Pistas, Pistas Musicales,  Karaoke Songs, Playbacks - Tango, Opera, Broadway, Rock, Pop, Latinos,  Folklore, Infantiles, Tangos, Canzonettas - Roberto Rial Producciones" />
+	<?php include('../assets/inc/toptwo.php'); ?>  <?php $idA = 203; $idT = 3881; ?><?php include '../dev_cdartesanalNEWT.php' ?><?php include('../assets/inc/toptre.php'); ?>

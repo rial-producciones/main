@@ -1,0 +1,138 @@
+#contenedorsite .cajas{ width:283px; float:left; background-color:#000; border-radius:10px; margin:6px 6px 6px 9px; padding:10px; border: solid 1px #702907; }
+
+#contenedorsite .cajas_form{ width:600px; float:left; background-color:#000; border-radius:10px; margin:6px 6px 6px 9px; padding:10px; border: solid 1px #702907; }
+#contenedorsite .cajas_form input{
+	background-color: #000;
+	border-radius: 5px;
+	margin: 3px 3px 3px 3px;
+	padding: 5px;
+	border: 1px solid #FFFF99;
+	color: #F90;
+	width: 340px;
+}
+#contenedorsite .cajas_form select{
+	background-color: #000;
+	border-radius: 5px;
+	margin: 3px 3px 3px 3px;
+	padding: 5px;
+	border: 1px solid #FFFF99;
+	color: #F90;
+	width: 340px;
+}
+#contenedorsite .cajas_form label{
+	font-size:13px; color:#fff}
+#contenedorsite .cajas_form textarea{
+	background-color: #000;
+	border-radius: 5px;
+	margin: 3px 3px 3px 3px;
+	padding: 5px;
+	border: 1px solid #FFFF99;
+	color: #F90
+}
+#contenedorsite #cuerpo_new div .cajas_form.caja_promocion_form #form1 table tr td #enviar{background-color:#CCC; border-radius:5px; margin:3px 3px 3px 3px; padding:5px; border: solid 1px #702907; color:#000;width:100px!important;}
+#contenedorsite #cuerpo_new div .cajas_form.caja_promocion_form #form1 table tr td #enviar:hover{cursor:pointer; background-color:#fff; width:100px!important;}
+
+#contenedorsite .caja_promocion_form{ background-image:url(../n_imagenes/modo_promocion2.png); background-repeat:no-repeat; }
+#contenedorsite .caja_promocion{ background-image:url(../n_imagenes/modo_promocion2.png); background-repeat:no-repeat; }
+#contenedorsite .caja_artesanal{ background-image:url(../n_imagenes/modo_artesanal2.png); background-repeat:no-repeat; }
+#contenedorsite .caja-info{width:602px; height:40px; border-radius:10px; margin:9px; padding:10px; border: solid 1px #702907; text-align:center; color:#FFF;background-image:url(../n_imagenes/modo_artesanal2.png); background-repeat:no-repeat; background-position:center center;     line-height:1;}
+
+#contenedorsite .caja-info-form{
+	width: 602px;
+	height: 100px;
+	border-radius: 10px;
+	margin: 9px;
+	padding: 10px;
+	border: solid 1px #702907;
+	text-align: center;
+	color: #FFF;
+	background-image: url(../n_imagenes/modo_artesanal2.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	line-height: 1;
+}
+
+.caja-info2{
+	width: 602px;
+	border-radius: 10px;
+	margin: 9px 9px 9px 9px;
+	padding: 10px;
+	border: solid 1px #702907;
+	text-align: center;
+	color: #fff;
+}
+.caja-info2 p{ line-height:16px;}
+.caja-info2 h1{color:#fff; margin-bottom:5px; font-size:14px;font-weight:normal!important; color:#FF9}
+
+#contenedorsite .caja-info h2, h3{font-weight:normal!important; color:#FF9}
+#contenedorsite .cajas h1{ color:#fff; margin-bottom:5px; font-size:17px;font-weight:normal!important; color:#FF9}
+#contenedorsite .caja_buscador{
+	position: absolute;
+	width: 288px;
+	height: 550px;
+	left: -335px;
+	top: -513px;
+	
+}
+#contenedorsite .caja_buscador_vip{ position: absolute; width: 303px; height: 550px; left: 12px; top: -139px; 
+	
+}
+#contenedorsite .caja-link{
+	-moz-transition: 0.8s; 
+	-webkit-transition: 0.8s; 
+	-o-transition: 0.8s;
+    transition: 0.8s;
+	display: inline-block;
+    position: relative;
+    margin: 5px 0;
+    color:#fff;
+    background:#000;
+	font-family: "Lucida Grande", Lucida, Verdana, sans-serif;
+	 border-radius:5px;
+	text-decoration: none;
+	padding: 5px;
+	cursor:pointer;
+	border: solid 1px #6A310F
+	}
+	#contenedorsite .caja-link:hover{
+	display: inline-block;
+   position: relative;
+   margin: 5px 0;
+   color:#fff;
+   background:#F36E05;
+	font-family: "Lucida Grande", Lucida, Verdana, sans-serif;
+	border-radius:5px;
+	text-decoration: none;
+	padding: 5px;
+	cursor:pointer;
+	
+	}
+	
+#contenedorsite .cajas a {
+   color:#F30!important;
+}
+#contenedorsite .tooltip{ 
+position: absolute; 
+background: #c0df71; 
+color: #333; 
+border-radius:5px; 
+font-family: "Lucida Grande", Lucida, Verdana, sans-serif;
+line-height:15px;
+padding: 10px; 
+margin-top: -20px; 
+margin-left: 10px; 
+z-index: 3; 
+display: none;
+background-color: #fff; 
+width:245px;
+-webkit-box-shadow: 0 1px 9px #000; 
+-moz-box-shadow: 0 1px 9px #000; 
+box-shadow: 0 1px 9px #000;
+	-moz-transition: 0.8s; 
+	-webkit-transition: 0.8s; 
+	-o-transition: 0.8s;
+    transition: 0.8s;
+}
+.titulo_rojo{ color:#F00;}
+
+            

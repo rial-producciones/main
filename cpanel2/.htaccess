@@ -1,0 +1,4 @@
+AuthUserFile "/home/rialproducciones/.htpasswds/public_html/cpanel2/passwd"
+AuthType Basic
+AuthName "rialproducciones"
+require valid-user
