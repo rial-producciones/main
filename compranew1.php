@@ -27,14 +27,14 @@ $totalNoSonPacks = getDiscountNoPacks($noSonPacks, "pesos");
 
 $total = $totalSonPacks + $totalNoSonPacks;
 for ($i = 0; $i < count($carritoo); $i++) {
-	$nombre_cancion = $carritoo[$i]['nombre'] . '[' . $carritoo[$i]['tonos'] . ']';
+	$nombre_cancion = $carritoo[$i]['nombre_artista'] . " - " . $carritoo[$i]['nombre'] . '[' . $carritoo[$i]['tonos'] . ']';
 	$array_canciones[$i] = [
 		"id" => $carritoo[$i]['id'],
 		"title" => $carritoo[$i]['nombre'],
 		"currency_id" => "ARS",
 		"picture_url" => 'https://rialproducciones.com/nuevo/assets/img/logoprincipal.png',
 		"quantity" => 1,
-		"unit_price" => ($carritoo[$i]['isPack'] === true) ? intval($carritoo[$i]['precio']) :( (count($noSonPacks) > 2) ? floor((int)$carritoo[$i]['precio'] - ceil((int)$carritoo[$i]['precio'] * getPercentagePerSong($noSonPacks))) : (int)$carritoo[$i]['precio'])
+		"unit_price" => ($carritoo[$i]['isPack'] === true) ? intval($carritoo[$i]['precio']) : ((count($noSonPacks) > 2) ? floor((int)$carritoo[$i]['precio'] - ceil((int)$carritoo[$i]['precio'] * getPercentagePerSong($noSonPacks))) : (int)$carritoo[$i]['precio'])
 	];
 
 	$temaspedidos .= $nombre_cancion;

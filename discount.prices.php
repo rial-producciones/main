@@ -54,7 +54,7 @@ function getDiscountBodyEmail($carrito)
         return $item['isPack'] === false;
     }));
     for ($n = 0; $n < count($carrito); $n++) {
-        $ContenidosBody .= $carrito[$n]['nombre'] . '[' . $carrito[$n]['tonos'] . ']' . ' - $';
+        $ContenidosBody .= $carrito[$n]['nombre_artista'] . " - " . $carrito[$n]['nombre'] . '[' . $carrito[$n]['tonos'] . ']' . ' - $';
         if ($carrito[$n]['isPack'] === false) {
             if (count($noSonPacks) > 0 && count($noSonPacks) <= 2) {
                 $ContenidosBody .= $carrito[$n]['precio'];
