@@ -439,9 +439,9 @@
 
 				<div class="linkerio">
 					<ul>
+						<li><a href="../comocomprar.php" title="Derechos - Copyright">Precios</a>&nbsp;|&nbsp;<a href="../comocomprar.php" title="Derechos - Copyright">Como comprar</a></li>
 						<li><a href="../karaoke-pistas-musicales-playbacks.php?goto=karaoke&idBtn=1" title="Pistas Musicales">Pistas de Tango</a></li>
 						<li><a href="../otros-rubros.php" title="Demos">Pistas de Otros Rubros</a></li>
-						<li><a href="../comocomprar.php" title="Derechos - Copyright">Precios</a>&nbsp;|&nbsp;<a href="../comocomprar.php" title="Derechos - Copyright">Como comprar</a></li>
 						<li><a href="../licencias.php" title="Derechos - Copyright">Autorizaciones para grabar y subir a las redes</a></li>
 						<li><a href="/tango/index.php" title="Promociones">Promociones</a></li>
 
@@ -481,9 +481,9 @@
 								Pistas Musicales
 							</a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item" href="../comocomprar.php" title="Derechos - Copyright">Precios | Como comprar</a>
 								<a class="dropdown-item" href="../karaoke-pistas-musicales-playbacks.php?goto=karaoke&idBtn=1" title="Pistas Musicales">Pistas de Tango</a><a class="dropdown-item" href="../pistas_de_musica_pistas_de_karaoke.php" title="Pistas Musicales"></a>
 								<a class="dropdown-item" href="../otros-rubros.php" title="Demos">Pistas de Otros Rubros</a>
-								<a class="dropdown-item" href="../comocomprar.php" title="Derechos - Copyright">Precios | Como comprar</a>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="../licencias.php" title="Derechos - Copyright">Autorizaciones para grabar y subir a las redes</a>
 								<a class="dropdown-item" href="/tango/index.php" title="Promociones">Promociones</a>

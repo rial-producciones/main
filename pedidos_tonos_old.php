@@ -98,72 +98,7 @@ error_reporting(0);
         #mensaje {
             font-size: 15px;
         }
-
-        .switch {
-            position: relative;
-            display: inline-block;
-            width: 45px;
-            height: 24px;
-        }
-
-        .switch input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #ccc;
-            -webkit-transition: .4s;
-            transition: .4s;
-        }
-
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 20px;
-            width: 20px;
-            left: 4px;
-            bottom: 2px;
-            background-color: white;
-            -webkit-transition: .4s;
-            transition: .4s;
-        }
-
-        input:checked+.slider {
-            background-color: #2196F3;
-        }
-
-        input:focus+.slider {
-            box-shadow: 0 0 1px #2196F3;
-        }
-
-        input:checked+.slider:before {
-            -webkit-transform: translateX(17px);
-            -ms-transform: translateX(17px);
-            transform: translateX(17px);
-        }
-
-        /* Rounded sliders */
-        .slider.round {
-            border-radius: 34px;
-        }
-
-        .slider.round:before {
-            border-radius: 50%;
-        }
-
-        textarea {
-            resize: none;
-        }
     </style>
-
     <div class="contenidos-desseccion demostraciones otros-rubros">
         <div class="alerta">
             <p id="mensaje" class="text-white"></p>
@@ -172,17 +107,36 @@ error_reporting(0);
             <div class="row">
                 <div class="col-11 col-sm-11 col-md-6 m-auto">
                     <br>
-                    <h2 class="text-center">LISTA DE DEMOS A SOLICITAR</h2>
-                    <p class="d-flex justify-content-end mt-4" style="font-size: 12px;">¿Con Coro?</p>
-                    <div class="lista-pedidos py-2">
+                    <h2 class="text-center">SOLICITUD DE DEMOS GRATIS</h2>
+                    <form id="form-tonos" class="form-tonos center" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="nombre" class="text-start">Nombre y Apellido</label>
+                            <input type="text" name="nombre" id="nombre" class="form-control" pattern="^[a-zA-ZÀ-ÿ\u00f1\u00d1 ]{1,40}" id="nombre" placeholder="Su nombre y apellido" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="text-start">Email</label>
+                            <input type="email" name="email" class="form-control" id="email" placeholder="Su email" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono" class="text-start">Teléfono</label>
+                            <input type="number" name="telefono" class="form-control" id="telefono" placeholder="Su teléfono" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="pais" class="text-start">País de residencia</label>
+                            <input type="text" name="pais" id="pais" class="form-control" pattern="^[a-zA-ZÀ-ÿ\u00f1\u00d1 ]{1,40}" id="pais" placeholder="Su país de residencia" required />
+                        </div>
+                        <div class="form-group d-flex flex-row">
+                            <input type="radio" name="coro" class="mr-1" id="coro" placeholder="Con coros" value="Con Coros" required /> Con Coros
+                            <input type="radio" name="coro" class="ml-3 mr-1" id="coro" placeholder="Sin coros" value="Sin Coros" required /> Sin Coros
+                        </div>
+                        <div class="form-group">
+                            <label for="comentarios" class="text-start">Comentarios</label>
+                            <textarea class="form-control" name="comentarios" id="comentarios" rows="3" placeholder="Comentario (opcional)" onkeypress="return ((event.charCode >= 32 && event.charCode <= 122) || (event.charCode == 13) ||(event.charCode == 130) || (event.charCode == 144) || (event.charCode == 181) || (event.charCode == 224) || (event.charCode == 233) || (event.charCode >= 160 && event.charCode <= 165 ) || (event.charCode == 32) ) " required> </textarea>
+                        </div>
 
-                    </div>
-                    <textarea name="observacion" id="comentario" class="form-control w-100 observacion" rows="6" placeholder="Comentario (opcional)"></textarea>
-                    <div class="buttons-pedidos d-flex flex-row justify-content-center align-items-center">
-                        <a href="./otros-rubros.php" style="margin:15px 5px;" class="btn btn-danger">Ver más Demos</a>
-                        <button onclick="pedirTonos()" id="btn-wpp" style="display: flex;justify-content:center;align-items:center;margin:15px 5px;" class="btn btn-success"><img height="25" style="margin-right: 5px;" src="./nuevo/assets/img/flags/whatsapp.png" alt=""> Pedir Demos</button>
-                    </div>
+                        <button type="submit" class="btn btn-danger">Enviar Solicitud</button>
 
+                    </form>
                     <h2><br>
                         Tiempo de Entrega: m&iacute;nimo 15 minutos - m&aacute;ximo 24 hs.<br>
                         <br>
@@ -195,6 +149,10 @@ error_reporting(0);
                         Con su compra, las Pistas ser&aacute;n enviadas al tono que desee.
                     </p>
                     <br>
+                    <p style="font-size:16px">DEMOS SELECCIONADOS (No deje de consultar en el recuadro de Comentarios por las pistas que no encuentre):</p>
+                    <div class="lista-pedidos mt-4">
+
+                    </div>
 
                 </div>
             </div>
@@ -212,6 +170,7 @@ error_reporting(0);
 
 
         const params = new URLSearchParams(urlObj.search);
+
 
         const id = params.get('id');
         const artista = params.get('artista');
@@ -244,37 +203,15 @@ error_reporting(0);
             pedidos = JSON.parse(sessionStorage.getItem("pedidos"))
 
             pedidos.forEach((pedido, index) => {
-                
                 listaPedidos.innerHTML += `
-                <div class="item-pedido d-flex flex-row justify-content-between align-items-center mt-2">
-                    <p style="width:70%;font-size:14px;margin-right:15px;">${pedido.artista} - ${pedido.tema}</p>
-                    <button class="btn btn-danger mx-4" type="button" onclick="eliminarPedido(${index}, ${pedido.id})"><i class="bi bi-trash-fill"></i></button>
-                    <div class="coros">
-                        <label class="switch">
-                            <input type="checkbox" class="con-coro" />
-                            <span class="slider round"></span>
-                        </label>
-                    </div>
+                <div class="item-pedido d-flex flex-row align-items-center mt-2">
+                    <p style="font-size:14px;margin-right:15px;">${pedido.artista} - ${pedido.tema}</p>
+                    <button class="btn btn-danger" type="button" onclick="eliminarPedido(${index}, ${pedido.id})">Eliminar</button>
                 </div>
                 `
             })
-
-            // const btnWpp = document.querySelector("#btn-wpp").href = `https://api.whatsapp.com/send/?phone=%2B5491150944545&text=Hola%21%20Quisiera%20solicitar%20las%20siguientes%20pistas%3A%0A${pedidoString}`
         }
 
-
-        const pedirTonos = () => {
-            let pedidos = JSON.parse(sessionStorage.getItem("pedidos"))
-            const coros = document.querySelectorAll(".con-coro")
-            const comentarios = document.querySelector("#comentario")
-            let pedidoString = "";
-            pedidos.forEach((pedido, index) => {    
-                pedidoString += `${pedido.tema.replaceAll(" ", "%20")}%20-%20${pedido.artista.replaceAll(" ", "%20")}(${coros[index].checked? 'Con': 'Sin'} Coro)%2C`
-            })
-
-
-            window.open(`https://api.whatsapp.com/send/?phone=%2B5491150944545&text=Hola%21%20Quisiera%20solicitar%20las%20siguientes%20Demos%3A%0A${pedidoString}%0A%0AObservacion:%20${comentarios.value}`, '_blank');
-        }
         const eliminarPedido = (index, idArtista) => {
             const pedidos = JSON.parse(sessionStorage.getItem("pedidos"))
             console.log(index, idArtista);

@@ -265,14 +265,13 @@
 				<div class="linkerio">
 
 					<ul>
-
+						<li><a href="comocomprar.php" title="Demos">Precios | C&oacute;mo comprar</a></li>
 						<li><a href="karaoke-pistas-musicales-playbacks.php?goto=karaoke&idBtn=1" title="Pistas Musicales">Pistas de Tango</a></li>
 
 						<li><a href="otros-rubros.php" title="Pistas Musicales">Pistas de Otros Rubros</a><a href="comocomprar.php" title="Demos"></a></li>
 
 						<!--<li><a href="demos.php" title="Demos">Demos</a></li>-->
 
-						<li><a href="comocomprar.php" title="Demos">Precios | C&oacute;mo comprar</a></li>
 
 						<li><a href="licencias.php" title="Derechos - Copyright">Autorizaciones para grabar&nbsp;y&nbsp;subir a las redes</a></li>
 						<li><a href="/tango/index.php" title="Promociones">Promociones</a></li>
@@ -328,15 +327,15 @@
 							</a>
 
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-
+								<a class="dropdown-item" href="comocomprar.php" title="Demos">Precios | C&oacute;mo comprar</a>
 								<a class="dropdown-item" href="karaoke-pistas-musicales-playbacks.php?goto=karaoke&idBtn=1" title="Pistas Musicales">Pistas de Tango</a>
-
+								<a class="dropdown-item" href="otros-rubros.php" title="Pistas Musicales">Pistas de Otros Rubros</a>
 								<!--                            <a class="dropdown-item" href="demos.php" title="Demos">Demos</a>
 
 -->
 								<!--falta sección-->
 
-								<a class="dropdown-item" href="otros-rubros.php" title="Pistas Musicales">Pistas de Otros Rubros</a> <a class="dropdown-item" href="comocomprar.php" title="Demos">Precios | C&oacute;mo comprar</a>
+
 
 								<a class="dropdown-item" href="licencias.php" title="Derechos - Copyright">Autorizaciones para grabar y subir a las redes</a>
 								<a class="dropdown-item" href="/tango/index.php" title="Promociones">Promociones</a>

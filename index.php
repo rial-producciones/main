@@ -10,8 +10,8 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rial Producciones - music &amp; records -                                                                                                    
-    Composiciones Musicales     -     Mastering - Estudios de Alta Tecnología - Pistas Karaoke Pistas Karaoke y m?s Pistas Karaoke ! Rial Producciones - Pistas, Pistas Musicales, Pistas de Karaoke, Pistas para Cantantes, Pistas de Canto, Pistas de Musica, Professional Karaoke Songs, Karaoke Pistas, Playbacks - Tango, Opera, Broadway, Rock, Pop, Latinos, Folklore, Infantiles, Tangos, Canzonetas Napolitanas - Rial Producciones</title>
+    <title>Rial Producciones - music &amp; records -
+        Composiciones Musicales - Mastering - Estudios de Alta Tecnología - Pistas Karaoke Pistas Karaoke y m?s Pistas Karaoke ! Rial Producciones - Pistas, Pistas Musicales, Pistas de Karaoke, Pistas para Cantantes, Pistas de Canto, Pistas de Musica, Professional Karaoke Songs, Karaoke Pistas, Playbacks - Tango, Opera, Broadway, Rock, Pop, Latinos, Folklore, Infantiles, Tangos, Canzonetas Napolitanas - Rial Producciones</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="title" content="Rial Producciones - music &amp; records                                                                                 Pistas Karaoke Pistas Karaoke y m?s Pistas Karaoke ! Roberto Rial Producciones - Pistas, Pistas Musicales, Pistas de Karaoke, Pistas para Cantantes, Pistas de Canto, Pistas de Musica, Professional Karaoke Songs, Karaoke Pistas, Playbacks - Tango, Opera, Broadway, Rock, Pop, Latinos, Folklore, Infantiles, Tangos, Canzonetas Napolitanas - Rial Producciones" />
     <meta name="description" content="Pistas - Roberto Rial Producciones - Lider Mundial en Pistas Profesionales para Cantantes - m?s de 110.000 pistas de karaoke en el tono que desee. Tambi?n componen temas in?ditos." />
@@ -79,10 +79,22 @@
                                 <div class="fecha solocel">
                                     <p>
                                         <?php
-                                        setlocale(LC_TIME, "spanish");
+                                        $dias = ["Monday" => "Lunes", "Thursday" => "Martes", "Wednesday" => "Miércoles", "Tuesday" => "Jueves", "Friday" => "Viernes", "Saturday" => "Sábado", "Sunday" => "Domingo"];
+                                        $mes = ["January" => "Enero", "February" => "Febrero", "March" => "Marzo", "April" => "Abril", "May" => "Mayo", "June" => "Junio", "July" => "Julio", "August" => "Agosto", "September" => "Septiembre", "October" => "Octubre", "November" => "Noviembre", "December" => "Diciembre"];
+                                        setlocale(LC_TIME, 'es_ES.UTF-8');
                                         echo "<br/>Hoy es ";
-                                        //echo strftime(" %A %d de %B de %Y ");
-                                        echo iconv("iso-8859-1", "utf-8", strftime('%A %d de %B de %Y'));
+                                        $date = new DateTime('now');
+                                        $nombreDia = strftime('%A', $date->getTimestamp());
+                                        $dia = strftime('%d', $date->getTimestamp());
+                                        $nombreMes = strftime('%B', $date->getTimestamp());
+                                        $nombreAnio = strftime('%Y', $date->getTimestamp());
+                                        if (is_null($dias[$nombreDia]) || is_null($mes[$nombreMes])) {
+                                            echo iconv("iso-8859-1", "utf-8", strftime(" %A %d de %B del %Y ", $date->getTimestamp()));
+                                        } else {
+                                            echo $dias[$nombreDia] . " " . $dia . " de " . $mes[$nombreMes] . " de " . $nombreAnio;
+                                        }
+
+
                                         echo "<br>";
                                         echo "<span>Buenos Aires - Argentina</span><br/><br/>";
                                         ?>
@@ -102,9 +114,20 @@
                 <div class="fecha nocel">
                     <p>
                         <?php
-                        setlocale(LC_TIME, 'Spanish');
+                        $dias = ["Monday" => "Lunes", "Thursday" => "Martes", "Wednesday" => "Miércoles", "Tuesday" => "Jueves", "Friday" => "Viernes", "Saturday" => "Sábado", "Sunday" => "Domingo"];
+                        $mes = ["January" => "Enero", "February" => "Febrero", "March" => "Marzo", "April" => "Abril", "May" => "Mayo", "June" => "Junio", "July" => "Julio", "August" => "Agosto", "September" => "Septiembre", "October" => "Octubre", "November" => "Noviembre", "December" => "Diciembre"];
+                        setlocale(LC_TIME, 'es_ES.UTF-8');
                         echo "<br/>Hoy es ";
-                        echo iconv("iso-8859-1", "utf-8", strftime('%A %d de %B de %Y'));
+                        $date = new DateTime('now');
+                        $nombreDia = strftime('%A', $date->getTimestamp());
+                        $dia = strftime('%d', $date->getTimestamp());
+                        $nombreMes = strftime('%B', $date->getTimestamp());
+                        $nombreAnio = strftime('%Y', $date->getTimestamp());
+                        if (is_null($dias[$nombreDia]) || is_null($mes[$nombreMes])) {
+                            echo iconv("iso-8859-1", "utf-8", strftime(" %A %d de %B de %Y ", $date->getTimestamp()));
+                        } else {
+                            echo $dias[$nombreDia] . " " . $dia . " de " . $mes[$nombreMes] . " de " . $nombreAnio;
+                        }
                         echo "<br>";
                         echo "<span>Buenos Aires - Argentina</span>";
                         ?>
@@ -119,7 +142,7 @@
         </div>
     </div>
     <?php
-     include "./nuevo/assets/inc/inc_pie.php";
+    include "./nuevo/assets/inc/inc_pie.php";
     ?>
     <div class="container">
         <div class='posi'>

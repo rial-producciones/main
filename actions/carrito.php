@@ -49,11 +49,15 @@
         alertt.style.background = "#28a745"
         mensaje.innerHTML = `Eliminaste a ${carrito[id].nombre} de tus temas seleccionados.`
 
-        carrito.splice(id, id + 1);
-        sessionStorage.setItem("carrito", JSON.stringify(carrito))
+        const carritoFiltered = carrito.filter(cart => cart.id === id)
+        // carrito.splice(id, id + 1);
+        sessionStorage.setItem("carrito", JSON.stringify(carritoFiltered))
         // eliminarElemento(id)
-        setTimeout(() => {
-            location.reload()
-        }, 2000);
+
+        // document.querySelector('#cantidadTemas').innerHTML = `Tienes ${carritoFiltered.length} producto`
+        // document.querySelector("#totalTemas").innerHTML = `Total: $${total}`
+        // setTimeout(() => {
+        //     location.reload()
+        // }, 2000);
     }
 </script>

@@ -95,10 +95,10 @@ error_reporting(0);
             <div class="row">
 
                 <div class="col-sm-0 col-md-1">
-                  <div class="col-sm-0 col-md-1">
-                    <p>&nbsp;</p>
-                    <p>&nbsp;</p>
-                  </div>
+                    <div class="col-sm-0 col-md-1">
+                        <p>&nbsp;</p>
+                        <p>&nbsp;</p>
+                    </div>
                 </div>
 
                 <div class="col-sm-0 col-md-10">
@@ -127,12 +127,12 @@ error_reporting(0);
                         <span class="Estilo8">Argentina:</span>
 
                         <p><span class="acordeon">1 a 2 pistas:                  AR$  7200 c/u<br>
-3 a 9 pistas:                  AR$  6120 c/u<br>
-10 a 19 pistas:             AR$  5255 c/u<br>
-20 a 29 pistas:             AR$  4608 c/u<br>
-30 pistas o más:          AR$  3960 c/u</span></p>
+                                3 a 9 pistas:                  AR$  6120 c/u<br>
+                                10 a 19 pistas:             AR$  5255 c/u<br>
+                                20 a 29 pistas:             AR$  4608 c/u<br>
+                                30 pistas o más:          AR$  3960 c/u</span></p>
 
-                      <p>&nbsp;</p>
+                        <p>&nbsp;</p>
 
                         <h4><b class="Estilo8">Otros Países:</b><br />
 
@@ -236,9 +236,9 @@ error_reporting(0);
 
                         <p><span class="acordeon">
 
-                            Formato mp3 320 kkps (máxima calidad). </span></p>
+                                Formato mp3 320 kkps (máxima calidad). </span></p>
                         <p><span class="acordeon">Usted recibirá en su correo un e-mail que dirá en el asunto: <strong>Envio de Rial Producciones</strong>, el mismo contiene tada la explicaión para descargarlas facilmente. </span></p>
-                    <br /><br />
+                        <br /><br />
 
                         <h1><b>&bullet;</b> Demos</h1>
 
@@ -260,9 +260,11 @@ error_reporting(0);
 
                                 <div class="list-group" id="list-tab" role="tablist">
 
-                                    <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-uno" role="tab">Cómo Comprar</a>
+                                    <a class="list-group-item list-group-item-action active" id="list-home-list" href="#list-dos" data-toggle="list" role="tab"><strong>Precios</strong></a>
+                                    
+                                    <a class="list-group-item list-group-item-action" data-toggle="list" href="#list-uno" role="tab">Cómo Comprar</a>
 
-                                    <a href="#list-dos" class="list-group-item-action list-group-item" data-toggle="list" role="tab"><strong>Precios</strong></a>
+
 
                                     <a class="list-group-item list-group-item-action" data-toggle="list" href="#list-tres" role="tab">Tonalidades</a>
 
@@ -272,9 +274,10 @@ error_reporting(0);
 
                                     <a class="list-group-item list-group-item-action" data-toggle="list" href="#list-seis" role="tab">Forma de Entrega</a>
 
-                                    <a class="list-group-item list-group-item-action" data-toggle="list" href="#list-siete" role="tab">Demos</a>                                </div>
+                                    <a class="list-group-item list-group-item-action" data-toggle="list" href="#list-siete" role="tab">Demos</a>
+                                </div>
 
-                              <br />
+                                <br />
 
                             </div>
 
@@ -282,7 +285,7 @@ error_reporting(0);
 
                                 <div class="tab-content" id="nav-tabContent">
 
-                                    <div class="tab-pane fade show active" id="list-uno" role="tabpanel" style="margin:0 10px;">
+                                    <div class="tab-pane fade" id="list-uno" role="tabpanel" style="margin:0 10px;">
 
                                         <br />
 
@@ -322,13 +325,13 @@ error_reporting(0);
 
                                     </div>
 
-                                    <div class="tab-pane fade" id="list-dos" role="tabpanel">
+                                    <div class="tab-pane fade show active" id="list-dos" role="tabpanel">
 
                                         <br />
 
                                         <h1><b>&bullet;</b> Precios- Pistas de Tango y de Otros Rubros</h1>
 
-                                    <hr />
+                                        <hr />
 
                                         <p class="acordeon">
 
@@ -344,27 +347,28 @@ error_reporting(0);
 
                                                 <p class="acordeon">
 
-                                                <b>Argentina:</b></p>
+                                                    <b>Argentina:</b>
+                                                </p>
                                                 <p class="acordeon"><br />
                                                 </p>
                                                 <p><span class="acordeon">1 a 2 pistas:                  AR$  7200 c/u<br>
-3 a 9 pistas:                  AR$  6120 c/u<br>
-10 a 19 pistas:             AR$  5255 c/u<br>
-20 a 29 pistas:             AR$  4608 c/u<br>
-30 pistas o más:          AR$  3960 c/u</span></p>
-                                          </div>
+                                                        3 a 9 pistas:                  AR$  6120 c/u<br>
+                                                        10 a 19 pistas:             AR$  5255 c/u<br>
+                                                        20 a 29 pistas:             AR$  4608 c/u<br>
+                                                        30 pistas o más:          AR$  3960 c/u</span></p>
+                                            </div>
 
-<div class="col-6">
+                                            <div class="col-6">
 
                                                 <p class="acordeon"><b>Otros Pa&iacute;ses:</b></p>
                                                 <p class="acordeon"><br />
-                                                  1 a 9 pistas:                   Dólares 9 c/u<br>
-10 a 19 pistas:               Dólares 7 c/u<br>
-20 a 29 pistas:              Dólares 6 c/u<br>
-30 pistas o más:          Dólares 5 c/u</p>
-</div>
+                                                    1 a 9 pistas:                   Dólares 9 c/u<br>
+                                                    10 a 19 pistas:               Dólares 7 c/u<br>
+                                                    20 a 29 pistas:              Dólares 6 c/u<br>
+                                                    30 pistas o más:          Dólares 5 c/u</p>
+                                            </div>
 
-                                      </div>
+                                        </div>
 
                                     </div>
 
@@ -438,7 +442,7 @@ error_reporting(0);
 
                                             Formato mp3 320 kkps (máxima calidad). </p>
                                         <p class="acordeon">Usted recibirá en su correo un e-mail que dirá en el asunto: <strong>contactos@rialproducciones.com te ha enviado archivos con WeTransfer</strong>, el mismo tiene toda la explicaión para descargarlas facilmente. </p>
-                                  </div>
+                                    </div>
 
                                     <div class="tab-pane fade" id="list-siete" role="tabpanel">
 
@@ -451,11 +455,11 @@ error_reporting(0);
                                         <p class="acordeon">
 
                                             <a href="demos.php">Puede entrar <span class="Estilo2"><strong>AQUI</strong> </span>para comprobar la calidad de Nuestras Pistas</a><br />
-                                          <br />
+                                            <br />
 
                                         </p>
 
-                                  </div>
+                                    </div>
 
                                 </div>
 
