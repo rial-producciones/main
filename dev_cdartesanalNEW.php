@@ -283,7 +283,7 @@ if ($buscarInput != "" || V("letraa") != "" || V("letrab") != "" || $rubroID != 
 				echo "<h3 class='tema'>" . strtoupper($d->tema) . "</h3>";
 				if ($d->id_rubro != 14) {
 					// Boton para solicitar demos, se desactiva porque quedo viejo el design
-					echo "<div class='img'><a href='pedidos_tonos.php?pag={$pag}&idBtn={$bot}&artista={$artista}&tema={$tema}&id={$d->id}'><img src='img/demo.png' style='display:block'/></a></div>";
+					echo "<div class='img'><a href='pedidos_tonos.php?pag={$pag}&idBtn={$bot}&artista={$artista}&tema={$tema}&id={$d->id}&agregado=false'><img src='img/demo.png' style='display:block'/></a></div>";
 				}
 				echo "</div>";
 				echo "<p class='autor'>{$d->nombre}</p>";

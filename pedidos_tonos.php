@@ -99,66 +99,6 @@ error_reporting(0);
             font-size: 15px;
         }
 
-        .switch {
-            position: relative;
-            display: inline-block;
-            width: 45px;
-            height: 24px;
-        }
-
-        .switch input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #ccc;
-            -webkit-transition: .4s;
-            transition: .4s;
-        }
-
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 20px;
-            width: 20px;
-            left: 4px;
-            bottom: 2px;
-            background-color: white;
-            -webkit-transition: .4s;
-            transition: .4s;
-        }
-
-        input:checked+.slider {
-            background-color: #2196F3;
-        }
-
-        input:focus+.slider {
-            box-shadow: 0 0 1px #2196F3;
-        }
-
-        input:checked+.slider:before {
-            -webkit-transform: translateX(17px);
-            -ms-transform: translateX(17px);
-            transform: translateX(17px);
-        }
-
-        /* Rounded sliders */
-        .slider.round {
-            border-radius: 34px;
-        }
-
-        .slider.round:before {
-            border-radius: 50%;
-        }
-
         textarea {
             resize: none;
         }
@@ -172,20 +112,27 @@ error_reporting(0);
             <div class="row">
                 <div class="col-11 col-sm-11 col-md-6 m-auto">
                     <br>
-                    <h2 class="text-center">LISTA DE DEMOS A SOLICITAR</h2>
-                    <p class="d-flex justify-content-end mt-4" style="font-size: 12px;">¿Con Coro?</p>
-                    <div class="lista-pedidos py-2">
+                    <h2 class="text-center text-dark">LISTA DE DEMOS A SOLICITAR</h2>
+                    <div id="demos" class="d-flex flex-column align-items-center mt-4">
+                        <div class="d-flex flex-column align-items-end align-self-end">
+                            <p class="d-flex justify-content-end mt-4" style="font-size: 12px;">¿Con Coros?</p>
+                            <div class="w-100 d-flex flex-row justify-content-center align-items-center">
+                                <p style="font-size: 12px;margin: 0 6px;">No</p>
+                                <p style="font-size: 12px;margin: 0 6px;">Si</p>
+                            </div>
+                        </div>
+                        <div class="lista-pedidos p-2 w-100">
 
-                    </div>
-                    <textarea name="observacion" id="comentario" class="form-control w-100 observacion" rows="6" placeholder="Comentario (opcional)"></textarea>
-                    <div class="buttons-pedidos d-flex flex-row justify-content-center align-items-center">
-                        <a href="./otros-rubros.php" style="margin:15px 5px;" class="btn btn-danger">Ver más Demos</a>
-                        <button onclick="pedirTonos()" id="btn-wpp" style="display: flex;justify-content:center;align-items:center;margin:15px 5px;" class="btn btn-success"><img height="25" style="margin-right: 5px;" src="./nuevo/assets/img/flags/whatsapp.png" alt=""> Pedir Demos</button>
+                        </div>
+                        <textarea name="observacion" id="comentario" class="form-control w-100 observacion" rows="6" placeholder="Comentario (opcional)"></textarea>
+                        <div class="buttons-pedidos d-flex flex-row justify-content-center align-items-center">
+                            <a href="./otros-rubros.php" style="margin:15px 5px;" class="btn btn-primary">Ver más Demos</a>
+                            <button onclick="pedirTonos()" id="btn-wpp" style="display: flex;justify-content:center;align-items:center;margin:15px 5px;" class="btn btn-success"><img height="25" style="margin-right: 5px;" src="./nuevo/assets/img/flags/whatsapp.png" alt=""> Pedir Demos</button>
+                        </div>
                     </div>
 
                     <h2><br>
                         Tiempo de Entrega: m&iacute;nimo 15 minutos - m&aacute;ximo 24 hs.<br>
-                        <br>
                     </h2>
                     <p style="font-size: 16px;" class="text-center">
                         Los demos ser&aacute;n enviados en el <b>tono original</b> del int&eacute;rprete para
@@ -205,31 +152,38 @@ error_reporting(0);
     <p>&nbsp;</p>
     <?php include "nuevo/assets/inc/inc_pie.php"; ?>
     <script>
-        const formPistas = document.querySelector("#form-tonos")
         const url = window.location.href;
-
         const urlObj = new URL(url);
-
-
         const params = new URLSearchParams(urlObj.search);
 
         const id = params.get('id');
         const artista = params.get('artista');
         const tema = params.get('tema');
+        const agregado = params.get('agregado');
 
+        let pedidos = JSON.parse(sessionStorage.getItem("pedidos"))
+
+        if (pedidos.length === 0 && agregado === 'true') {
+            document.querySelector("#demos").innerHTML = `
+            <p style="font-size: 15px;margin:10px auto;">No hay demos en su lista</p>
+            <a href="https://rialproducciones.com/otros-rubros.php" class="btn btn-primary">Ver más Demos</a>
+            `
+        }
         if (id && artista && tema) {
-            let pedidos = JSON.parse(sessionStorage.getItem("pedidos"))
+
             const cancion = {
                 id: id,
                 artista: artista,
                 tema: tema
             }
             if (pedidos) {
-                console.log(pedidos);
                 const arrPedidos = pedidos;
 
                 const pedidoRepetido = arrPedidos.filter((pedido) => pedido.id === cancion.id);
-                if (pedidoRepetido.length === 0) {
+                if (pedidoRepetido.length === 0 && agregado === 'false') {
+                    params.set('agregado', 'true');
+                    urlObj.search = params.toString();
+                    window.history.pushState({}, '', urlObj);
                     arrPedidos.push(cancion);
                     sessionStorage.setItem("pedidos", JSON.stringify(arrPedidos))
                 }
@@ -244,32 +198,39 @@ error_reporting(0);
             pedidos = JSON.parse(sessionStorage.getItem("pedidos"))
 
             pedidos.forEach((pedido, index) => {
-                
+
                 listaPedidos.innerHTML += `
                 <div class="item-pedido d-flex flex-row justify-content-between align-items-center mt-2">
                     <p style="width:70%;font-size:14px;margin-right:15px;">${pedido.artista} - ${pedido.tema}</p>
                     <button class="btn btn-danger mx-4" type="button" onclick="eliminarPedido(${index}, ${pedido.id})"><i class="bi bi-trash-fill"></i></button>
-                    <div class="coros">
-                        <label class="switch">
-                            <input type="checkbox" class="con-coro" />
-                            <span class="slider round"></span>
-                        </label>
+                    <div class="d-flex justify-content-center align-center" style="width:10%;">
+                        <input type="radio" style="margin:0 5px" class="con-coro-${pedido.id}" name="coros_${pedido.id}" id="coro_${pedido.id}" value="Sin Coros" checked />
+                        <input type="radio" style="margin:0 5px" class="con-coro-${pedido.id}" name="coros_${pedido.id}" id="coro_${pedido.id}" value="Con Coros" />
                     </div>
                 </div>
                 `
             })
-
-            // const btnWpp = document.querySelector("#btn-wpp").href = `https://api.whatsapp.com/send/?phone=%2B5491150944545&text=Hola%21%20Quisiera%20solicitar%20las%20siguientes%20pistas%3A%0A${pedidoString}`
         }
 
 
         const pedirTonos = () => {
             let pedidos = JSON.parse(sessionStorage.getItem("pedidos"))
-            const coros = document.querySelectorAll(".con-coro")
+
             const comentarios = document.querySelector("#comentario")
             let pedidoString = "";
-            pedidos.forEach((pedido, index) => {    
-                pedidoString += `${pedido.tema.replaceAll(" ", "%20")}%20-%20${pedido.artista.replaceAll(" ", "%20")}(${coros[index].checked? 'Con': 'Sin'} Coro)%2C`
+
+            pedidos.forEach((pedido, index) => {
+
+                let coros = document.querySelectorAll(`.con-coro-${pedido.id}`)
+
+                coros.forEach((radio) => {
+                    if (radio.checked) {
+                        pedidoString += `${pedido.tema.replaceAll(" ", "%20")}%20-%20${pedido.artista.replaceAll(" ", "%20")}(${radio.value})%2C`
+                    }
+                });
+
+
+
             })
 
 
@@ -284,54 +245,6 @@ error_reporting(0);
             sessionStorage.setItem("pedidos", JSON.stringify(filtrarPedidos))
             window.location.reload()
         }
-
-
-
-        formPistas.addEventListener("submit", (e) => {
-            e.preventDefault()
-            const nombre = document.querySelector("#nombre").value
-            const email = document.querySelector("#email").value
-            const telefono = document.querySelector("#telefono").value
-            const pais = document.querySelector("#pais").value
-            const coro = document.querySelector('input[name="coro"]:checked').value
-            const comentarios = document.querySelector("#comentarios").value
-            const pedidos = JSON.parse(sessionStorage.getItem("pedidos"))
-            const form = {
-                nombre: nombre,
-                email: email,
-                telefono: telefono,
-                pais: pais,
-                coro: coro,
-                comentarios: comentarios,
-                pedidos: pedidos
-            }
-
-            fetch("./realizar_pedido.php", {
-                method: "POST",
-                body: JSON.stringify(form)
-            }).then(res => res.json()).then(data => {
-                document.querySelector("#mensaje").innerHTML = data.message
-                if (data.status === 200) {
-                    document.querySelector(".alerta").classList.add("bg-success")
-                    document.querySelector(".alerta").classList.add("show")
-                    setTimeout(() => {
-                        document.querySelector(".alerta").classList.remove("bg-success")
-
-                    }, 2500);
-                } else {
-                    document.querySelector(".alerta").classList.add("bg-danger")
-                    document.querySelector(".alerta").classList.add("show")
-                    setTimeout(() => {
-                        document.querySelector(".alerta").classList.remove("bg-danger")
-                        document.querySelector(".alerta").classList.remove("show")
-                    }, 2500);
-                }
-                setTimeout(() => {
-                    document.querySelector("#mensaje").innerHTML = ""
-                    window.location.reload()
-                }, 2500);
-            })
-        })
     </script>
 
     <script>
