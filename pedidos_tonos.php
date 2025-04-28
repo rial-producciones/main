@@ -137,7 +137,7 @@ error_reporting(0);
                     <p style="font-size: 16px;" class="text-center">
                         Los demos ser&aacute;n enviados en el <b>tono original</b> del int&eacute;rprete para
                         que conozca la versi&oacute;n
-                        ( No se env&iacute;an en otras tonalidades ).<br>
+                        (No se env&iacute;an en otras tonalidades).<br>
                         <br>
                         Con su compra, las Pistas ser&aacute;n enviadas al tono que desee.
                     </p>
@@ -163,7 +163,7 @@ error_reporting(0);
 
         let pedidos = JSON.parse(sessionStorage.getItem("pedidos"))
 
-        if (pedidos.length === 0 && agregado === 'true') {
+        if (pedidos && pedidos.length === 0 && agregado === 'true') {
             document.querySelector("#demos").innerHTML = `
             <p style="font-size: 15px;margin:10px auto;">No hay demos en su lista</p>
             <a href="https://rialproducciones.com/otros-rubros.php" class="btn btn-primary">Ver más Demos</a>
@@ -234,7 +234,7 @@ error_reporting(0);
             })
 
 
-            window.open(`https://api.whatsapp.com/send/?phone=%2B5491150944545&text=Hola%21%20Quisiera%20solicitar%20las%20siguientes%20Demos%3A%0A${pedidoString}%0A%0AObservacion:%20${comentarios.value}`, '_blank');
+            window.open(`https://api.whatsapp.com/send/?phone=%2B5491150944545&text=Hola%21%20Quisiera%20solicitar%20los%20siguientes%20Demos%3A%0A${pedidoString}%0A%0AObservacion:%20${comentarios.value}`, '_blank');
         }
         const eliminarPedido = (index, idArtista) => {
             const pedidos = JSON.parse(sessionStorage.getItem("pedidos"))

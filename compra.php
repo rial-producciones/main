@@ -276,7 +276,7 @@ $signoMostrar = ($_SESSION["pais"] == "otro") ? "U\$D" : "\$";
 
                                     <hr>
 
-                                    <h5>Medios de pago a trav&eacute;s de MercadoPago</h5><br />
+                                    <h5>En el pr&oacute;ximo paso, podr&aacute;s seleccionar pagar con Tarjetas de Cr&eacute;dito, D&eacute;bito o Mercado Pago</h5><br />
 
                                     <div class="alert alert-info">
 
@@ -296,7 +296,7 @@ $signoMostrar = ($_SESSION["pais"] == "otro") ? "U\$D" : "\$";
 
                                     </div>
 
-                                    <h5>Para finalizar tu compra, completa los siguientes datos</h5><br />
+                                    <h5>Para continuar con tu compra, completa los siguientes datos</h5><br />
 
                                     <div class="form-group row">
 
@@ -334,9 +334,9 @@ $signoMostrar = ($_SESSION["pais"] == "otro") ? "U\$D" : "\$";
 
                                         </div>
 
-                                    </div> <span style="font-size:16px">Vas a abonar con Mercado Pago. Presiona el siguiente bot&oacute;n</span>
-
-                                    <BR><BR><button type="submit" class="btn btn-success">CONTINUAR </button><BR><BR>
+                                    </div>
+                                    <BR>
+                                    <BR><button type="submit" class="btn btn-success">CONTINUAR </button><BR><BR>
 
                                 </form>
 
@@ -660,7 +660,6 @@ $signoMostrar = ($_SESSION["pais"] == "otro") ? "U\$D" : "\$";
                                     </b><br /><br />
 
                                     <input type="hidden" name="id_type" value="1">
-
                                     <input type="hidden" name="lang" value="<?= $_SESSION["idiomaCheck"]; ?>">
                                     <input type="hidden" name="tco_currency" value="USD">
                                     <!-- <?php //if ($_SESSION['pais'] == "argentina") { 
@@ -691,13 +690,15 @@ $signoMostrar = ($_SESSION["pais"] == "otro") ? "U\$D" : "\$";
 
                                     ?>
 
-                                        <input type="hidden" name="c_prod_<?= $n; ?>" value="<?= $k; ?>,<?= $v['cantidad']; ?>">
 
-                                        <input type="hidden" name="c_name_<?= $n; ?>" value="<?= $v['nombre'] . " (" . $v['artista'] . ")"; ?>">
+                                        <input type="hidden" name="li_<?= $n; ?>_type" value="<?= $k; ?>,<?= $v['cantidad']; ?>">
 
-                                        <input type="hidden" name="c_description_<?= $n; ?>" value="+">
+                                        <input type="hidden" name="li_<?= $n; ?>_name" value="<?= $v['nombre'] . " (" . $v['artista'] . ")"; ?>">
 
-                                        <input type="hidden" name="c_price_<?= $n; ?>" value="<?= number_format($v[$monedaMostrar], 2, ".", ","); ?>">
+                                        <input type="hidden" name="li_<?= $n; ?>_description" value="+">
+
+                                        <input type="hidden" name="li_<?= $n; ?>_price" value="<?= number_format($v[$monedaMostrar], 2, ".", ","); ?>">
+
 
                                     <?
 
@@ -712,13 +713,13 @@ $signoMostrar = ($_SESSION["pais"] == "otro") ? "U\$D" : "\$";
 
                                     ?>
 
-                                        <input type="hidden" name="c_prod_<?= $n; ?>" value="80000,1">
+                                        <input type="hidden" name="li_<?= $n; ?>_type" value="80000,1">
 
-                                        <input type="hidden" name="c_name_<?= $n; ?>" value="Costo de envio">
+                                        <input type="hidden" name="li_<?= $n; ?>_name" value="<?= $v['nombre'] . " (" . $v['artista'] . ")"; ?>">
 
-                                        <input type="hidden" name="c_description_<?= $n; ?>" value="+">
+                                        <input type="hidden" name="li_<?= $n; ?>_description" value="+">
 
-                                        <input type="hidden" name="c_price_<?= $n; ?>" value="<?= number_format($costoEnvio, 2, ".", ","); ?>">
+                                        <input type="hidden" name="li_<?= $n; ?>_price" value="<?= number_format($costoEnvio, 2, ".", ","); ?>">
 
                                     <?
 
@@ -738,6 +739,8 @@ $signoMostrar = ($_SESSION["pais"] == "otro") ? "U\$D" : "\$";
                                     ?>
 
                                     <input type="hidden" name="sid" value="75081">
+                                    <input type='hidden' name='mode' value='2CO'>
+
 
                                     <input type="hidden" name="cart_order_id" value="<?= time(); ?>">
 
@@ -1179,21 +1182,6 @@ $signoMostrar = ($_SESSION["pais"] == "otro") ? "U\$D" : "\$";
                         })
 
                 })
-            // fetch("./compranew1.php", {
-            //         method: "POST",
-            //         headers: {
-            //             "Content-Type": "application/json"
-            //         },
-            //         body: JSON.stringify(response)
-            //     })
-            //     .then(response => response.json())
-            //     .then(data => {
-            //         // console.log(data)
-            //         sessionStorage.removeItem('carrito');
-            //         setTimeout(() => {
-            //             window.location.href = `${data}`
-            //         }, 1000);
-            //     })
         })
 
         document.querySelector(".FormTB").addEventListener("submit", (e) => {
@@ -1225,11 +1213,12 @@ $signoMostrar = ($_SESSION["pais"] == "otro") ? "U\$D" : "\$";
         let total = 0;
         let totalP = 0;
         for (let i = 0; i < carrito.length; i++) {
+            // <input type="hidden" name="li_${i+1}_type" value="${i},1">
             productos_input.innerHTML += `
-            <input type="hidden" name="c_prod_${i+1}" value="${i},1">
-            <input type="hidden" name="c_name_${i+1}" value="${carrito[i].nombre} [${carrito[i].tonos}] (${carrito[i].nombre_artista})">
-            <input type="hidden" name="c_description_${i+1}" value="+">
-            <input type="hidden" name="c_price_${i+1}" value="${carrito[i].internacional}.00">
+            
+            <input type="hidden" name="li_${i+1}_name" value="${carrito[i].nombre} [${carrito[i].tonos}] (${carrito[i].nombre_artista})">
+            <input type="hidden" name="li_${i+1}_description" value="+">
+            <input type="hidden" name="li_${i+1}_price" value="${carrito[i].internacional}.00">
             `
             total += parseInt(carrito[i].internacional)
             totalP += parseInt(carrito[i].precio)
